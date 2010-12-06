@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title>Produit Cartesien</title>
+<style type="text/css">
+html,body{font-family: georgian,arian,verdana,sans-serif;font-size: 30px}
+p {margin-top:20px;padding:10px;width:750px;border:none;-webkit-box-shadow:0px 0px 20px rgba(33,123,232,.8);-moz-box-shadow:0px 0px 20px rgba(33,123,232,.8);}
+</style>
+   <script type="text/javascript">
+
+       /* Produit Cartesien */
+      //cardinal sets      
+     /*
+         Soient A,B,C trois ensembles finis.
+         A = {1,2}; card(A) = 2;
+         B = {1}; card(B) = 1;
+         C = {1,2,3}; card(C) = 3;
+         Alors:
+         Z = AxBxC; 
+         card(Z) = card(A) + card(B) + card(C);
+      */
+
+    /*
+     var n = [2,1,3], 
+
+     //number of sets
+     m = 3,
+     //define v
+     v = [], 
+     //output
+     out = '',
+     i,j,k;
+
+    
+    for(j=0;j<m;j++) {
+         v[j] = 1;
+    }     
+    do {
+        out = '';         
+        for(k=0;k<m;k++) {
+            out += v[k] + ' ';  
+        }
+        console.log(out);
+
+        i=m-1;
+
+        while(i>=0) {
+           if(v[i] == n[i]) {
+              v[i] = 1;
+              i--;
+           } else {
+              v[i] = v[i] + 1;
+              i = -2;  
+           }
+        }
+
+    }while(i!=-1);
+    */
+</script>
+</head>
+<body>
+<h1>Produit cartesien</h1>
+<p>
+Fie A {a1, a2, a3, ... , an} o multime de caractere numita alfabet. Numim cuvant de lungime p peste alfabetul A
+orice succesiune de p elemente din A. Pentru un numar natural k sa se genereze toate cuvintele de lungime k peste
+alfabetul A.
+</p>
+<strong>Input:</strong>
+<p> A = {'a','b','c','d'}, k = 3</p>
+<strong>Output:</strong>
+<div id="result"></div>
+<script type="text/javascript">
+    /* 
+       Soient A = {'a','b','c','d','e'};
+       Fie A {a1, a2, a3, ... , an} o multime de caractere numita alfabet. Numim cuvant de lungime p peste alfabetul A
+       orice succesiune de p elemente din A. Pentru un numar natural k sa se genereze toate cuvintele de lungime k peste
+       alfabetul A.
+    */
+
+function produit_cartesien(mult,cards) {
+    var m = cards.length,
+        v = [],
+        j,k,i, 
+        out = ''; 
+    for(j=0;j<m;j++) {
+         v[j] = 1;
+    }     
+    do {
+        out = '';         
+        for(k=0;k<m;k++) {
+            out += mult[v[k]-1] + '';  
+        }
+        document.getElementById('result').innerHTML += out + '<br/>';
+
+        i=m-1;
+
+        while(i>=0) {
+           if(v[i] == cards[i]) {
+              v[i] = 1;
+              i--;
+           } else {           
+             v[i] = v[i] + 1;
+             i = -2; 
+           }
+        }
+    }while(i!=-1);   
+ 
+}//end function
+
+var cards = [4,4,4],
+    mult = ['a','b','c','d'];
+    
+produit_cartesien(mult,cards);
+</script>
+</body>
+</html>
