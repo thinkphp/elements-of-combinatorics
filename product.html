@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title>
+</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+var cards = [0, 3, 2, 3],
+
+    m = cards.length-1,
+
+    v = [],
+
+    final = ""; 
+
+//recursive
+function cartesian( k ) {
+
+        if(k == (m + 1)) {
+
+                var s = ""
+
+                for(var i = 1;i <= m; i++) {
+ 
+                        s += v[i]
+                }
+
+                final += s + '\n'
+
+        } else {
+
+               for(var j = 1; j <= cards[k]; j++) {
+
+                       v[ k ] = j
+
+                       cartesian( k + 1)  
+               }
+        }
+}
+
+/*
+v = [0,1,1,1]
+
+//iterative
+do {
+             var s = ""
+
+             for(var j = 1;j <= m; j++) {
+ 
+                        s += v[j]
+             }
+
+             final += s + "\n"
+
+             var i = m;  
+
+             while(i >= 1)
+ 
+             if(v[i] == cards[i]) {
+
+               v[i] = 1
+
+               i = i - 1
+
+             } else {
+
+               v[i] = v[i] + 1
+
+               i = -2 
+             }
+
+}while(i!=0)
+
+alert(final)
+*/
+
+//iterative brute force with 3 for
+function cartesian2(cardinals) {
+
+         var out = ""
+
+         for(var i = 1; i <= cardinals[1]; i++) {
+
+                 for(var j = 1; j <= cardinals[2]; j++) {
+
+                         var s = ""
+
+                         for(var k = 1; k <= cardinals[3]; k++) {
+
+                                 s += i + " " + j + " " + k + "\n"
+                         }
+
+                        out += s + "\n"
+                 }
+         }
+
+    return out
+}
+
+alert(cartesian2([-1,3,5,3]))
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

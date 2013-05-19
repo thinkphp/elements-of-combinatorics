@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title>
+</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+var n = 3;
+var p = []
+    p[1] = 1;
+    p[2] = 2;
+    p[3] = 3;
+
+
+function write() {
+    var s = ""
+    for(var i=1;i<=n;i++) {
+       s += p[i] + " "
+    }
+    alert(s)
+}    
+123
+function perm() {
+    var aux,
+        k,
+        found,
+        i, 
+        j;
+    
+    do { 
+
+    write()
+
+    found = false;
+
+    i = n - 1; 
+
+    while(!found && i>0) {
+
+          if(p[i]<p[i+1]) {
+
+             found = true  
+
+          } else {
+
+             i--
+          }
+    }     
+
+    if(found) {
+
+          k = n
+
+          while(p[i]>p[k]) k--
+
+          aux = p[i]
+          p[i] = p[k]
+          p[k] = aux
+
+          for(j=1;j<=parseInt((n-i)/2);i++) {
+                  aux = p[i+j]
+                  p[i+j] = p[n-j+1]
+                  p[n-j+1] = aux
+          } 
+
+    }
+  
+    }while(found);  
+} 
+
+perm();
+
+</script>
+</head>
+<body>
+</body>
+</html>
+
